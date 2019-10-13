@@ -12,7 +12,7 @@ module Punishas
 
     private
 
-    BASE_TAGS = ENV['BASE_TAGS'] || %w[revert merge packaging].freeze
+    BASE_TAGS = ENV['BASE_TAGS'] || Punishas.configuration.base_tags
 
     def check_commits
       `git log --no-merges --pretty=%s #{@range}`.each_line do |commit_summary|
