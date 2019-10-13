@@ -4,9 +4,8 @@ require 'check-ahead/commits_checker'
 
 namespace :'check-ahead' do
   desc 'verify that commit messages match CONTRIBUTING.md requirements'
-  task :check_commits do
-    range = ENV['TRAVIS_COMMIT_RANGE'].nil? ? 'master..HEAD' : ENV['TRAVIS_COMMIT_RANGE'].sub(/\.\.\./, '..')
-    CheckAhead::CommitsChecker.new(range).call
+  task :commits do
+    CheckAhead::CommitsChecker.new.call
   end
 
   desc 'generate the commits requirements to be added in CONTRIBUTING.md'

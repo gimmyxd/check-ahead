@@ -2,8 +2,10 @@
 
 module CheckAhead
   class CommitsChecker
-    def initialize(range)
-      @range = range
+    def initialize
+      @config = CheckAhead.configuration
+      @commit_range = @config.commit_range
+      @base_tags = @config.base_tags
     end
 
     def call
@@ -12,10 +14,8 @@ module CheckAhead
 
     private
 
-    BASE_TAGS = ENV['BASE_TAGS'] || CheckAhead.configuration.base_tags
-
     def check_commits
-      `git log --no-merges --pretty=%s #{@range}`.each_line do |commit_summary|
+      `git log --no-merges --pretty=%s #{@commit_range}`.each_line do |commit_summary|
         raise error_message(commit_summary) unless commit_summary =~ rules
 
         puts commit_summary.to_s
@@ -23,7 +23,7 @@ module CheckAhead
     end
 
     def rules
-      /^\((#{accepted_tags})\)|#{BASE_TAGS.join('|')}/i
+      /^\((#{accepted_tags})\)|#{@base_tags.join('|')}/i
     end
 
     def error_message(commit_summary)
@@ -31,7 +31,7 @@ module CheckAhead
       "\n\t\t#{commit_summary}\n" \
       "\tThe commit summary (i.e. the first line of the commit message) must start with one of:\n\n"  \
       "#{accepted_commits_section.delete('\\').split('*').join("\t\t")}\n" \
-      "\t\t #{BASE_TAGS.join("\n\t\t ")}\n" \
+      "\t\t #{@base_tags.join("\n\t\t ")}\n" \
       "\n\tThis test for the commit summary is case-insensitive.\n\n\n"
     end
 
@@ -54,7 +54,7 @@ module CheckAhead
     end
 
     def contributing_file
-      @contributing_file ||= File.read(ENV['CONTRIBUTING_MD'] || "#{Dir.pwd}/CONTRIBUTING.md")
+      @contributing_file ||= File.read(@config.contributing_md)
     end
   end
 end

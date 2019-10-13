@@ -27,15 +27,33 @@ CheckAhead.load_tasks
 
 ## Configuration
 
-The gem support configuration for: range, CONTRIBUTING.md path, base_tags
+The gem supports configuration for: commit_range, CONTRIBUTING.md path, base_tags
+
+Eg.
 
 ```ruby
-CheckAhead.configuration do |config|
-	config.range = 'master..HEAD'
+CheckAhead.configure do |config|
+	config.commit_range = 'master..HEAD'
 	config.contributing_md = "path_to_contributing_md"
 	config.base_tags = [revert]
 end
 ```
+
+or ENVIRONMENT variables:
+
+```ruby
+base_tags = ENV['BASE_TAGS']
+contributing_md =ENV['CONTRIBUTING_MD']
+commit_commit_range = ENV['COMMIT_commit_range']
+```
+
+### Defaults(if no configuration is set)
+```ruby
+base_tags = %w[revert merge packaging]
+contributing_md = File.join(Dir.pwd, 'CONTRIBUTING.md')
+commit_range = 'master..HEAD'
+```
+
 
 ## Development
 

@@ -2,7 +2,6 @@
 
 require 'check-ahead/version'
 require 'check-ahead/configuration'
-require 'check-ahead/commits_checker'
 
 module CheckAhead
   class << self
