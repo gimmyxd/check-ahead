@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'punishas/commits_checker'
+require 'check-ahead/commits_checker'
 
-namespace :punishas do
+namespace :'check-ahead' do
   desc 'verify that commit messages match CONTRIBUTING.md requirements'
   task :check_commits do
     range = ENV['TRAVIS_COMMIT_RANGE'].nil? ? 'master..HEAD' : ENV['TRAVIS_COMMIT_RANGE'].sub(/\.\.\./, '..')
-    Punishas::CommitsChecker.new(range).call
+    CheckAhead::CommitsChecker.new(range).call
   end
 
   desc 'generate the commits requirements to be added in CONTRIBUTING.md'

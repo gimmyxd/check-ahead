@@ -1,11 +1,11 @@
-# Punishas
+# CheckAhead
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'punishas'
+gem 'check-ahead'
 ```
 
 And then execute:
@@ -14,15 +14,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install punishas
+    $ gem install check-ahead
 
 ## Usage
 
 ```ruby
 # Rakefile
 
-require 'punishas'
-Punishas.load_tasks
+require 'check-ahead'
+CheckAhead.load_tasks
 ```
 
 ## Configuration
@@ -30,7 +30,7 @@ Punishas.load_tasks
 The gem support configuration for: range, CONTRIBUTING.md path, base_tags
 
 ```ruby
-Punishas.configuration do |config|
+CheckAhead.configuration do |config|
 	config.range = 'master..HEAD'
 	config.contributing_md = "path_to_contributing_md"
 	config.base_tags = [revert]
@@ -45,7 +45,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/gimmyxd/punishas. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/gimmyxd/check-ahead. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -53,4 +53,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Punishas project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/gimmyxd/punishas/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the CheckAhead project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/gimmyxd/check-ahead/blob/master/CODE_OF_CONDUCT.md).

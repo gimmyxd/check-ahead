@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Punishas
+module CheckAhead
   class CommitsChecker
     def initialize(range)
       @range = range
@@ -12,7 +12,7 @@ module Punishas
 
     private
 
-    BASE_TAGS = ENV['BASE_TAGS'] || Punishas.configuration.base_tags
+    BASE_TAGS = ENV['BASE_TAGS'] || CheckAhead.configuration.base_tags
 
     def check_commits
       `git log --no-merges --pretty=%s #{@range}`.each_line do |commit_summary|
@@ -49,7 +49,7 @@ module Punishas
         @accepted_commits_section[1].chomp.strip
       else
         raise 'information not foud in CONTRIBUTING.md, ' \
-              'please run punishas:generate_requirements'
+              'please run check-ahead:generate_requirements'
       end
     end
 

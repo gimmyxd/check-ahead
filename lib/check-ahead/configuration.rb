@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Punishas
+module CheckAhead
   class Configuration
     attr_accessor :base_tags, :contributing_md, :range
 

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'punishas/version'
-require 'punishas/configuration'
-require 'punishas/commits_checker'
+require 'check-ahead/version'
+require 'check-ahead/configuration'
+require 'check-ahead/commits_checker'
 
-module Punishas
+module CheckAhead
   class << self
     def load_tasks
       Dir["#{File.dirname(__dir__)}/lib/tasks/**/*.rake"].each { |file| load file }

@@ -2,22 +2,22 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'punishas/version'
+require 'check-ahead/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'punishas'
-  spec.version       = Punishas::VERSION
+  spec.name          = 'check-ahead'
+  spec.version       = CheckAhead::VERSION
   spec.authors       = ['gimmy']
   spec.email         = ['gheorghe.popescu@puppet.com']
 
   spec.summary       = 'Guard against unwanted commits'
-  spec.description   = 'Punishas let you define rules to guard against unwanted commits'
-  spec.homepage      = 'https://github.com/gimmyxd/punishas'
+  spec.description   = 'CheckAhead let you define rules to guard against unwanted commits'
+  spec.homepage      = 'https://github.com/gimmyxd/check-ahead'
   spec.license       = 'MIT'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/gimmyxd/punishas'
-  spec.metadata['changelog_uri'] = 'https://github.com/gimmyxd/punishas/blob/master/CHANGELONG.md'
+  spec.metadata['source_code_uri'] = 'https://github.com/gimmyxd/check-ahead'
+  spec.metadata['changelog_uri'] = 'https://github.com/gimmyxd/check-ahead/blob/master/CHANGELONG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
