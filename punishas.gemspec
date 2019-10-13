@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['gimmy']
   spec.email         = ['gheorghe.popescu@puppet.com']
 
-  spec.summary       = 'Guard agains unwanted commits'
-  spec.description   = 'Punishas let you define rules to guard agains unwanted commits'
+  spec.summary       = 'Guard against unwanted commits'
+  spec.description   = 'Punishas let you define rules to guard against unwanted commits'
   spec.homepage      = 'https://github.com/gimmyxd/punishas'
   spec.license       = 'MIT'
 
