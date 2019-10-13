@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Rakefile
+
+require 'punishas'
+Punishas.load_tasks
+```
+
+## Configuration
+
+The gem support configuration for: range, CONTRIBUTING.md path, base_tags
+
+```ruby
+Punishas.configuration do |config|
+	config.range = 'master..HEAD'
+	config.contributing_md = "path_to_contributing_md"
+	config.base_tags = [revert]
+end
+```
 
 ## Development
 
