@@ -3,8 +3,6 @@ require:
   - rubocop-rspec
   - rubocop-performance
 
-Documentation:
-  Enabled: false
 Metrics/MethodLength:
   Enabled: false
 Style/Documentation:
