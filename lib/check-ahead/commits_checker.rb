@@ -18,7 +18,7 @@ module CheckAhead
       `git log --no-merges --pretty=%s #{@commit_range}`.each_line do |commit_summary|
         raise error_message(commit_summary) unless commit_summary =~ rules
 
-        puts commit_summary.to_s
+        STDOUT.puts commit_summary
       end
     end
 
