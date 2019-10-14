@@ -3,10 +3,10 @@
 Helps you create consistent and transparent rules for accepting contributions to your open source projects.
 
 ## Rake Tasks
-`check-ahead:commits` - checks the commits against defined rules
-`check-ahead:generate_requirements` - generate rules from input
 
-##<line>
+`check-ahead:commits` - checks the commits against defined rules
+
+`check-ahead:generate_requirements` - generate rules from input
 
 **check-ahead** uses your **CONTRIBUTING.md** file
 
@@ -21,9 +21,7 @@ Accepted commits messages:
 </commits>
 ```
 
-This will generate a task `check-ahead:commits` which will allow only commit messages that match `(PA-\d+|maint|docs)`
-
-##<line>
+This will be used by `check-ahead:commits` which allows only commit messages that match `(PA-\d+|maint|docs)`
 
 
 ## Installation
@@ -77,7 +75,7 @@ Defaults:
 
 ```ruby
 base_tags = %w[revert merge packaging]
-contributing_md = File.join(/project_root/CONTRIBUTING.md')
+contributing_md = File.join('/project_root/CONTRIBUTING.md')
 commit_range = 'master..HEAD'
 ```
 
