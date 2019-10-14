@@ -1,6 +1,6 @@
 # check-ahead ![badge](https://action-badges.now.sh/gimmyxd/check-ahead)
 
-Helps you create consistent and transparent rules for accepting contributions to your open source projects.
+Helps you create consistent and transparent rules for checking commit messages.
 
 ## Rake Tasks
 
@@ -47,6 +47,9 @@ Or install it yourself as:
 
 require 'check-ahead'
 CheckAhead.load_tasks
+  or
+require 'check-ahead'
+include CheckAhead
 ```
 
 ## Configuration
@@ -60,6 +63,8 @@ CheckAhead.configure do |config|
   config.commit_range = 'master..HEAD'
   config.contributing_md = "/docs/CONTRIBUTING.md"
   config.base_tags = [revert]
+  config.max_length = 100
+  config.checking_max_length = true
 end
 ```
 
@@ -69,22 +74,26 @@ or ENVIRONMENT variables:
 ENV['BASE_TAGS']
 ENV['CONTRIBUTING_MD']
 ENV['COMMIT_RANGE']
+ENV['MAX_LENGTH']
+ENV['CHECK_MAX_LENGTH']
 ```
 
 Defaults:
 
 ```ruby
 base_tags = %w[revert merge packaging]
-contributing_md = File.join('/project_root/CONTRIBUTING.md')
+contributing_md = File.join('project_root/CONTRIBUTING.md')
 commit_range = 'master..HEAD'
+max_length = 50
+check_max_length = false
 ```
-
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
+
 
 ## Contributing
 
