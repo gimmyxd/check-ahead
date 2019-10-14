@@ -1,4 +1,5 @@
-# check-ahead
+# check-ahead ![badge](https://action-badges.now.sh/gimmyxd/check-ahead)
+
 Helps you create consistent and transparent rules for accepting contributions to your open source projects.
 
 ## Rake Tasks
