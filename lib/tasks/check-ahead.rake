@@ -17,7 +17,7 @@ namespace :'check-ahead' do
 
     abort('Bad input'.bold.red) if input.empty?
 
-    STDOUT.puts("\n\nGenerated output - please add it co CONTRIBUTING.md \n\n")
+    STDOUT.puts("\n\nGenerated output - please add it to CONTRIBUTING.md \n\n")
     STDOUT.puts CheckAhead::ContributingGenerator.new(input).call
   end
 end

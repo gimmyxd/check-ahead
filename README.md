@@ -1,6 +1,12 @@
 # check-ahead
 Helps you create consistent and transparent rules for accepting contributions to your open source projects.
 
+## Rake Tasks
+`check-ahead:commits` - checks the commits against defined rules
+`check-ahead:generate_requirements` - generate rules from input
+
+##<line>
+
 **check-ahead** uses your **CONTRIBUTING.md** file
 
 ```
@@ -14,7 +20,9 @@ Accepted commits messages:
 </commits>
 ```
 
-This will generate a task `check-ahead:check-commits` which will allow only commit messages that match `(PA-\d+|maint|docs)`
+This will generate a task `check-ahead:commits` which will allow only commit messages that match `(PA-\d+|maint|docs)`
+
+##<line>
 
 
 ## Installation
@@ -46,28 +54,29 @@ CheckAhead.load_tasks
 
 The gem supports configuration for: commit_range, CONTRIBUTING.md path, base_tags
 
-Eg.
+Example:
 
 ```ruby
 CheckAhead.configure do |config|
-	config.commit_range = 'master..HEAD'
-	config.contributing_md = "path_to_contributing_md"
-	config.base_tags = [revert]
+  config.commit_range = 'master..HEAD'
+  config.contributing_md = "/docs/CONTRIBUTING.md"
+  config.base_tags = [revert]
 end
 ```
 
 or ENVIRONMENT variables:
 
 ```ruby
-base_tags = ENV['BASE_TAGS']
-contributing_md =ENV['CONTRIBUTING_MD']
-commit_commit_range = ENV['COMMIT_commit_range']
+ENV['BASE_TAGS']
+ENV['CONTRIBUTING_MD']
+ENV['COMMIT_RANGE']
 ```
 
-### Defaults(if no configuration is set)
+Defaults:
+
 ```ruby
 base_tags = %w[revert merge packaging]
-contributing_md = File.join(Dir.pwd, 'CONTRIBUTING.md')
+contributing_md = File.join(/project_root/CONTRIBUTING.md')
 commit_range = 'master..HEAD'
 ```
 
