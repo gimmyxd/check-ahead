@@ -1,4 +1,7 @@
-/.bundle/
+# bundler
+.bundle
+Gemfile.local
+
 /.yardoc
 /_yardoc/
 /coverage/
