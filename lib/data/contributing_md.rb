@@ -11,11 +11,11 @@ class ContributingMd
     end
 
     def accepted_commits_section
-      accepted_commits_section ||= contributing_file.match(%r{<commits>(.*)</commits>}m)
+      accepted_commits_section = contributing_file.match(%r{<commits>(.*)</commits>}m)
       if accepted_commits_section
         accepted_commits_section[1].chomp.strip
       else
-        raise 'information not foud in CONTRIBUTING.md, ' \
+        raise 'information not found in CONTRIBUTING.md, ' \
               'please run check-ahead:generate_requirements'
       end
     end
