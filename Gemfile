@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :developmen, :test do
+  gem 'pry-byebug'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false

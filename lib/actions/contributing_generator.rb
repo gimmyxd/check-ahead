@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CheckAhead
+module Actions
   class ContributingGenerator
     def initialize(input)
       @input = input
