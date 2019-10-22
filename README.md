@@ -21,6 +21,10 @@ Accepted commits messages:
 </commits>
 ```
 
+The accepted content is defined between `<commits></commits>` tag and `<digits>` will be translated to the correspunding regex: `d+`.
+
+Check [example CONTRIBUTING.md](spec/fixtures/CONTRIBUTING.md)
+
 This will be used by `check-ahead:commits` which allows only commit messages that match `(PA-\d+|maint|docs)`
 
 
@@ -43,13 +47,14 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-# Rakefile
+# usually in your rakeRakefile
 
 require 'check-ahead'
-CheckAhead.load_tasks
-  or
+CheckAhead.load_tasks # loads rake task on demand
+
+# alternative loading
 require 'check-ahead'
-include CheckAhead
+include CheckAhead # loads rake task on project initialization
 ```
 
 ## Configuration
