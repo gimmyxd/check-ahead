@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Actions
-  class ContributingGenerator
+  class GenerateRules
     def initialize(input)
       @input = input
     end
 
-    def call
+    def execute
       generate_output.green
     end
 

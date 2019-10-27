@@ -6,7 +6,7 @@ Helps you create consistent and transparent rules for checking commit messages.
 
 `check-ahead:commits` - checks the commits against defined rules
 
-`check-ahead:generate_requirements` - generate rules from input
+`check-ahead:generate_rules` - generate rules from input
 
 **check-ahead** uses your **CONTRIBUTING.md** file
 

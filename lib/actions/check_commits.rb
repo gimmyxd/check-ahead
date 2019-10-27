@@ -4,12 +4,12 @@ require 'validators/commit_summary_validator'
 require 'validators/commit_length_validator'
 
 module Actions
-  class CommitsChecker
+  class CheckCommits
     def initialize
       @config = CheckAhead.configuration
     end
 
-    def call
+    def execute
       check_commits
     end
 

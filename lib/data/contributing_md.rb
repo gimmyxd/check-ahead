@@ -16,7 +16,7 @@ class ContributingMd
         accepted_commits_section[1].chomp.strip
       else
         raise 'information not found in CONTRIBUTING.md, ' \
-              'please run check-ahead:generate_requirements'
+              'please run check-ahead:generate_rules'
       end
     end
 
