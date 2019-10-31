@@ -23,7 +23,12 @@ class ContributingMd
     private
 
     def contributing_file
-      @contributing_file ||= File.read(CheckAhead.configuration.contributing_md)
+      return if @contributing_file
+
+      path = CheckAhead.configuration.contributing_md
+      raise IOError, "CONTRIBUTING.md not found in #{path}" unless File.exist?(path)
+
+      @contributing_file = File.read(path)
     end
   end
 end

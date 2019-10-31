@@ -16,7 +16,7 @@ module Actions
     private
 
     def check_commits
-      `git log --no-merges --pretty=%s #{@config.commit_range}`.each_line do |commit_summary|
+      Kernel.exec("git log --no-merges --pretty=%s #{@config.commit_range}").each_line do |commit_summary|
         commit = Commit.new(commit_summary)
         CommitSummaryValidator.call(commit)
         CommitLengthValidator.call(commit) if @config.check_max_length
