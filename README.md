@@ -47,7 +47,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-# usually in your rakeRakefile
+# usually in your Rakefile
 
 require 'check-ahead'
 CheckAhead.load_tasks # loads rake task on demand
@@ -86,7 +86,7 @@ ENV['CHECK_MAX_LENGTH']
 Defaults:
 
 ```ruby
-base_tags = %w[revert merge packaging]
+base_tags = %w[revert merge]
 contributing_md = File.join('project_root/CONTRIBUTING.md')
 commit_range = 'master..HEAD'
 max_length = 50
