@@ -20,8 +20,8 @@ module Actions
     end
 
     def split_input
-      @input = @input.gsub!('<digits>', '\\<digits>')
-      @input.split(',').map { |node| "* #{node}" }.join("\n")
+      @input.gsub('<digits>', '\\<digits>')
+            .split(',').map { |node| "* #{node}" }.join("\n")
     end
 
     def header

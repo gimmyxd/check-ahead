@@ -6,7 +6,7 @@ describe Actions::CheckCommits do
   let(:commit_messages) { "commit1\ncommit2" }
 
   before do
-    allow(Kernel).to receive(:exec).and_return(commit_messages)
+    allow(described_class).to receive(:`).and_return(commit_messages)
   end
 
   context 'when CONTRIBUTING.md is not found' do

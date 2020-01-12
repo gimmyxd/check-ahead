@@ -16,7 +16,7 @@ module Actions
     private
 
     def check_commits
-      Kernel.exec("git log --no-merges --pretty=%s #{@config.commit_range}").each_line do |commit_summary|
+      git_log.each_line do |commit_summary|
         commit = Commit.new(commit_summary)
         CommitSummaryValidator.call(commit)
         CommitLengthValidator.call(commit) if @config.check_max_length
@@ -26,9 +26,14 @@ module Actions
           STDOUT.puts "PASSED: #{commit_summary}"
         else
           error_message = error_message_header(commit_summary) + error_message
-          raise error_message
+          warn error_message
+          exit(false)
         end
       end
+    end
+
+    def git_log
+      `git log --no-merges --pretty=%s #{@config.commit_range}`
     end
 
     def error_message_header(commit_summary)
