@@ -45,7 +45,17 @@ Or install it yourself as:
     $ gem install check-ahead
 
 ## Usage
+### CLI
+```ruby
+CLI - based on dry-cli
+ - check-ahead --help # available commands
+ - check-ahead command --help # help for specicif commands
 
+Implemented commands:
+ - check-ahead check_commits
+ - check-ahead generate_rules TAGS
+```
+### Tasks
 ```ruby
 # usually in your Rakefile
 
@@ -59,11 +69,13 @@ include CheckAhead # loads rake task on project initialization
 
 ## Configuration
 
-The gem supports configuration for: commit_range, CONTRIBUTING.md path, base_tags
+The gem supports configuration for: commit\_range, CONTRIBUTING.md path, base_tags
 
 Example:
 
 ```ruby
+# inside your ruby project
+
 CheckAhead.configure do |config|
   config.commit_range = 'master..HEAD'
   config.contributing_md = "/docs/CONTRIBUTING.md"
@@ -73,7 +85,7 @@ CheckAhead.configure do |config|
 end
 ```
 
-or ENVIRONMENT variables:
+or **ENVIRONMENT** variables:
 
 ```ruby
 ENV['BASE_TAGS']
