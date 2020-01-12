@@ -18,8 +18,8 @@ module Actions
     def check_commits
       git_log.each_line do |commit_summary|
         commit = Commit.new(commit_summary)
-        CommitSummaryValidator.call(commit)
-        CommitLengthValidator.call(commit) if @config.check_max_length
+        CommitSummaryValidator.call(commit) if @config.check_commit_message?
+        CommitLengthValidator.call(commit) if @config.check_max_length?
         error_message = commit.errors.values.join
 
         if error_message.empty?

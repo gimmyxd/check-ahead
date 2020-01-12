@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# !/usr/bin/env ruby
 require 'bundler/setup'
 require 'dry/cli'
 require 'actions/check_commits'

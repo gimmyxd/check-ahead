@@ -2,15 +2,29 @@
 
 module CheckAhead
   class Configuration
-    attr_accessor :base_tags, :contributing_md, :commit_range,
-                  :max_length, :check_max_length
+    DEFAULT_ATTRS = {
+      base_tags: %w[revert merge],
+      contributing_md: File.join(Dir.pwd, 'CONTRIBUTING.md'),
+      commit_range: 'HEAD~1..HEAD',
+      max_length: 50,
+      check_max_length: false,
+      check_commit_message: true
+    }.freeze
+
+    ATTRS = DEFAULT_ATTRS.keys
+
+    attr_accessor(*ATTRS)
 
     def initialize
-      @base_tags = ENV['BASE_TAGS'] || %w[revert merge]
-      @contributing_md = ENV['CONTRIBUTING_MD'] || File.join(Dir.pwd, 'CONTRIBUTING.md')
-      @commit_range = ENV['COMMIT_RANGE'].to_s.sub(/\.\.\./, '..')
-      @max_length = ENV['MAX_LENGTH'] || 50
-      @check_max_length = ENV['CHECK_MAX_LENGTH'] || false
+      DEFAULT_ATTRS.each do |attribute, value|
+        send("#{attribute}=", ENV[attribute.to_s.upcase] || value)
+      end
+    end
+
+    ATTRS.select { |attribute| attribute.to_s.start_with?('check') }.each do |attribute|
+      define_method("#{attribute}?") do
+        ['true', true].include?(send(attribute))
+      end
     end
   end
 
