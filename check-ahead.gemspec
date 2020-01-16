@@ -35,4 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'dry-cli', ' ~> 0.4'
 
   spec.add_development_dependency 'bundler', '>= 1.15.0', '< 3.0'
+  spec.add_development_dependency 'climate_control', '>= 0.1', '< 1.0'
+  spec.add_development_dependency 'rspec', '~> 3.7'
 end

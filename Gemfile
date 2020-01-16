@@ -6,7 +6,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :developmen, :test do
-  gem 'climate_control'
   gem 'pry-byebug'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
