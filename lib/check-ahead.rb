@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry-byebug'
-
 require 'core_extensions/string'
 require 'check-ahead/version'
 require 'check-ahead/configuration'

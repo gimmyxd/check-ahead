@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'bundler/setup'
 require 'dry/cli'
 require 'actions/check_commits'
 require 'actions/generate_rules'
