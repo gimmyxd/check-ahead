@@ -1,0 +1,14 @@
+---
+name: Check Commits
+
+on: [push]
+
+jobs:
+  check-ahead:
+    env:
+      CHECK_COMMIT_MESSAGE: false
+      CHECK_MAX_LENGTH: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: gimmyxd/check-ahead-action@0.1

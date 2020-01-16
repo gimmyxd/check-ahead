@@ -18,6 +18,8 @@
 ROOT_DIR = Pathname.new(File.expand_path('..', __dir__)) unless defined?(ROOT_DIR)
 Dir.glob(File.join(ROOT_DIR, '/lib/**/*.rb'), &method(:require))
 
+require 'climate_control'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -100,4 +102,8 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+end
+
+def with_modified_env(options, &block)
+  ClimateControl.modify(options, &block)
 end

@@ -11,8 +11,10 @@ describe Actions::CheckCommits do
 
   context 'when CONTRIBUTING.md is not found' do
     it do
-      expect { check_commits.execute }.to \
-        raise_error(IOError, /CONTRIBUTING.md not found/)
+      with_modified_env CONTRIBUTING_MD: 'bar' do
+        expect { check_commits.execute }.to \
+          raise_error(IOError, /CONTRIBUTING.md not found/)
+      end
     end
   end
 end
